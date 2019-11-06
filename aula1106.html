@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+        <link href="aula1106.css" rel="stylesheet">
+        <title>Fica Reginaldo =)</title>
+    </head>
+    <body>
+        <p></p>
+        <p><b>Nota Desing Web =)</b></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <input type="text" ng-model="nome">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>        
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p><b>CADASTRO DE NOTAS</b></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+		<div class="container" ng-controller="ListaAlunosController">
+            <div class="row">
+                <div class="page-header">
+                    <h1>Lista de alunos</h1>
+                </div>
+            </div>
+            <div class="row">
+            <table id="lista-alunos" class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Aluno</th>
+                    <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in itens">
+                        <td><strong>{{ item.aluno }}</strong></td>
+                        <td>{{ item.nota }}</td>
+                    </tr>
+                </tbody>
+            </table>            
+            </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+            <div class="row">
+                <form class="form-inline" name="formItem">
+                    <input type="text" ng-model="item.aluno" placeholder="Aluno">
+                    <input type="number" ng-model="item.nota" placeholder="Nota" class="input-small">
+                    <button class="btn btn-primary" ng-click="adicionaItem()">adicionar ítem</button>
+                </form>
+            </div>
+        </div>   
+    </body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script>
+        function ListaAlunosController($scope) {
+            $scope.itens = [
+                {aluno: 'Nadjila', nota: 7, comprado: false},
+                {aluno: 'Lais', nota: 7, comprado: false}
+            ];
+        
+            $scope.adicionaItem = function () {
+                $scope.itens.push({aluno: $scope.item.aluno,
+                                   nota: $scope.item.nota,
+                                   comprado: false});
+                $scope.item.aluno = $scope.item.nota = '';
+            };
+        }
+    </script>
+</html>
